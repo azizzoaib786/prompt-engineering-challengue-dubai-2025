@@ -29,22 +29,21 @@ Follow the instructions below to get the app running locally.
 ### Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/your-username/space-travel-booking-app.git
-cd space-travel-booking-app
+git clone https://github.com/azizzoaib786/prompt-engineering-challengue-dubai-2025.git
+cd prompt-engineering-challengue-dubai-2025
 ```
 
 ### Step 2: Install dependencies
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Step 3: Run the Flask Application
 
 ```bash
 export FLASK_APP=app.py
-export FLASK_ENV=development
-flask run
+python3 app.py
 ```
 
 ### Step 5: Access the application
