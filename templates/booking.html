@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Book Your Space Adventure</h2>
+<form method="POST" action="{{ url_for('booking') }}">
+    <div>
+        <label for="user_name">Your Name:</label>
+        <input type="text" id="user_name" name="user_name" required>
+    </div>
+    <div>
+        <label for="departure_date">Departure Date:</label>
+        <input type="date" id="departure_date" name="departure_date" required>
+    </div>
+    <div>
+        <label for="destination">Destination:</label>
+        <select id="destination" name="destination">
+            {% for dest in destinations %}
+            <option value="{{ dest }}">{{ dest }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="seat_class">Seat Class:</label>
+        <select id="seat_class" name="seat_class">
+            {% for cls in seat_classes %}
+            <option value="{{ cls }}">{{ cls }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Confirm Booking</button>
+</form>
+{% endblock %}

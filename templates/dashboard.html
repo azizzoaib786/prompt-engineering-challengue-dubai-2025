@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ user_name }}'s Dashboard</h2>
+{% if countdown_info %}
+<h3>Your Upcoming Trips</h3>
+<ul>
+    {% for trip in countdown_info %}
+    <li>
+        <strong>Booking #{{ trip.booking_id }}</strong><br>
+        Destination: {{ trip.destination }}<br>
+        Departure: {{ trip.departure_date }}<br>
+        Days Left: {{ trip.days_left }}<br>
+        Travel Tip: {{ trip.tip }}
+    </li>
+    <br>
+    {% endfor %}
+</ul>
+{% else %}
+<p>
+    No upcoming trips found.
+    <a href="{{ url_for('booking') }}">Book now</a>
+</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,115 @@
+/* static/style.css */
+
+/* Global reset (optional minimal reset) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Trebuchet MS", sans-serif;
+    background: linear-gradient(135deg, #080808 0%, #1c1c1c 100%);
+    color: #E0F7FA;
+    /* Light cyan text */
+    padding: 20px;
+}
+
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #00ffd5;
+    /* Neon greenish-cyan */
+    font-weight: bold;
+    margin: 0 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #f0ffff;
+    text-shadow: 0 0 5px #00ffd5;
+}
+
+/* Container styling */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(30, 30, 30, 0.75);
+    border: 1px solid #00ffd5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 213, 0.3);
+}
+
+/* Headers */
+h1,
+h2,
+h3 {
+    text-align: center;
+    text-shadow: 0 0 5px #00ffd5;
+    color: #00ffd5;
+    margin-bottom: 15px;
+}
+
+/* Labels and form elements */
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #aafaf0;
+}
+
+input,
+select,
+button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #00ffd5;
+    border-radius: 4px;
+    background: #121212;
+    color: #fff;
+    outline: none;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #00ffd5;
+    color: #000;
+}
+
+/* Lists, paragraphs, etc. */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Additional subtle styling for displayed data */
+strong {
+    color: #00ffd5;
+}
+
+/* Link styling inside the container */
+.container a {
+    color: #00ffd5;
+    text-decoration: underline;
+}
+
+.container a:hover {
+    color: #f0ffff;
+    text-shadow: 0 0 5px #00ffd5;
+}
