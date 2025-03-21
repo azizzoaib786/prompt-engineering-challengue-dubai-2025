@@ -1,115 +1,94 @@
-/* static/style.css */
-
-/* Global reset (optional minimal reset) */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 body {
-    font-family: "Trebuchet MS", sans-serif;
-    background: linear-gradient(135deg, #080808 0%, #1c1c1c 100%);
-    color: #E0F7FA;
-    /* Light cyan text */
-    padding: 20px;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #000428, #004e92);
+    color: #e0f7fa;
+    margin: 0;
+    padding: 0;
 }
 
 nav {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
     text-align: center;
-    margin-bottom: 20px;
 }
 
 nav a {
-    text-decoration: none;
     color: #00ffd5;
-    /* Neon greenish-cyan */
+    text-decoration: none;
     font-weight: bold;
     margin: 0 15px;
-    position: relative;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 nav a:hover {
     color: #f0ffff;
-    text-shadow: 0 0 5px #00ffd5;
 }
 
-/* Container styling */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: rgba(30, 30, 30, 0.75);
-    border: 1px solid #00ffd5;
-    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 15px rgba(0, 255, 213, 0.3);
+    box-shadow: 0px 0px 15px 5px rgba(0, 255, 213, 0.3);
 }
 
-/* Headers */
 h1,
 h2,
 h3 {
     text-align: center;
-    text-shadow: 0 0 5px #00ffd5;
     color: #00ffd5;
+    text-shadow: 0 0 10px rgba(0, 255, 213, 0.5);
     margin-bottom: 15px;
 }
 
-/* Labels and form elements */
-label {
-    display: inline-block;
-    margin-bottom: 5px;
-    color: #aafaf0;
+form div {
+    margin-bottom: 15px;
 }
 
 input,
 select,
 button {
-    display: block;
     width: 100%;
-    padding: 8px 12px;
-    margin-bottom: 15px;
-    border: 1px solid #00ffd5;
-    border-radius: 4px;
-    background: #121212;
-    color: #fff;
-    outline: none;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-/* Buttons */
+input,
+select {
+    background: #1c1c1c;
+    color: #e0f7fa;
+}
+
 button {
+    background: #00ffd5;
+    color: #000;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s, transform 0.2s;
 }
 
 button:hover {
-    background: #00ffd5;
-    color: #000;
+    background: #00e0c7;
+    transform: scale(1.02);
 }
 
-/* Lists, paragraphs, etc. */
-ul {
-    list-style: none;
-    padding-left: 0;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-li {
-    margin-bottom: 10px;
+table th,
+table td {
+    padding: 12px;
+    border: 1px solid #00ffd5;
+    text-align: center;
 }
 
-/* Additional subtle styling for displayed data */
-strong {
-    color: #00ffd5;
-}
-
-/* Link styling inside the container */
-.container a {
-    color: #00ffd5;
-    text-decoration: underline;
-}
-
-.container a:hover {
-    color: #f0ffff;
-    text-shadow: 0 0 5px #00ffd5;
+table th {
+    background: rgba(0, 0, 0, 0.5);
 }
