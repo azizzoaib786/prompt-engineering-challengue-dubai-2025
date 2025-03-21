@@ -1,24 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>{{ user_name }}'s Dashboard</h2>
-{% if countdown_info %}
-<h3>Your Upcoming Trips</h3>
-<ul>
-    {% for trip in countdown_info %}
-    <li>
-        <strong>Booking #{{ trip.booking_id }}</strong><br>
-        Destination: {{ trip.destination }}<br>
-        Departure: {{ trip.departure_date }}<br>
-        Days Left: {{ trip.days_left }}<br>
-        Travel Tip: {{ trip.tip }}
-    </li>
-    <br>
-    {% endfor %}
-</ul>
+{% if dashboard_data %}
+<h3>Your Bookings</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Destination</th>
+            <th>Departure Date</th>
+            <th>Days Until Launch</th>
+            <th>Package</th>
+            <th>Price</th>
+            <th>Travel Tip</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for trip in dashboard_data %}
+        <tr>
+            <td>{{ trip.booking_id }}</td>
+            <td>{{ trip.destination }}</td>
+            <td>{{ trip.departure_date }}</td>
+            <td>{{ trip.days_left }}</td>
+            <td>{{ trip.seat_class }}</td>
+            <td>{{ trip.price }}</td>
+            <td>{{ trip.tip }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p><em>Note: To manage your bookings (update or cancel), additional functionality can be implemented.</em></p>
 {% else %}
-<p>
-    No upcoming trips found.
-    <a href="{{ url_for('booking') }}">Book now</a>
-</p>
+<p>No bookings found. <a href="{{ url_for('booking') }}">Book a trip</a></p>
 {% endif %}
 {% endblock %}

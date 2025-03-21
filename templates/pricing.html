@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Pricing & Packages</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Package</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for package, details in packages.items() %}
+        <tr>
+            <td>{{ package }}</td>
+            <td>{{ details.price }}</td>
+            <td>{{ details.description }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

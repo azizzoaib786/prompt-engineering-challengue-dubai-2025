@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Space Accommodation Recommendations</h2>
+<h2>Accommodation Recommendations</h2>
 <form method="POST" action="{{ url_for('recommendations') }}">
-    <label for="destination_pref">Choose Destination:</label>
-    <select id="destination_pref" name="destination_pref">
-        {% for dest in destinations %}
-        <option value="{{ dest }}" {% if chosen_destination==dest %}selected{% endif %}>
-            {{ dest }}
-        </option>
-        {% endfor %}
-    </select>
+    <div>
+        <label for="destination_pref">Choose Destination:</label>
+        <select id="destination_pref" name="destination_pref">
+            {% for dest in destinations %}
+            <option value="{{ dest }}" {% if chosen_destination==dest %}selected{% endif %}>{{ dest }}</option>
+            {% endfor %}
+        </select>
+    </div>
     <button type="submit">Get Recommendations</button>
 </form>
 
-{% if recommended_hotels %}
-<h3>Recommended Hotels/Stations at {{ chosen_destination }}</h3>
+{% if recommended_accommodations %}
+<h3>Recommended Accommodations for {{ chosen_destination }}</h3>
 <ul>
-    {% for hotel in recommended_hotels %}
-    <li>{{ hotel }}</li>
+    {% for accommodation in recommended_accommodations %}
+    <li>{{ accommodation }}</li>
     {% endfor %}
 </ul>
 {% elif chosen_destination %}
-<p>No specific recommendations found for {{ chosen_destination }}.</p>
+<p>No recommendations found for {{ chosen_destination }}.</p>
 {% endif %}
 {% endblock %}
