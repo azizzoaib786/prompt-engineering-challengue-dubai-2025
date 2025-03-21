@@ -30,6 +30,10 @@ bookings = []
 def home():
     return render_template("index.html")
 
+def generate_departure_dates(num_days=30):
+    today = datetime.date.today()
+    return [(today + datetime.timedelta(days=i)).strftime("%Y-%m-%d") for i in range(num_days)]
+
 @app.route("/booking", methods=["GET", "POST"])
 def booking():
     if request.method == "POST":

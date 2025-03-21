@@ -4,11 +4,12 @@
 <form method="POST" action="{{ url_for('booking') }}">
     <div>
         <label for="user_name">Your Name:</label>
-        <input type="text" id="user_name" name="user_name" required>
+        <input type="text" id="user_name" name="user_name" required />
     </div>
     <div>
         <label for="departure_date">Departure Date:</label>
-        <input type="date" id="departure_date" name="departure_date" required>
+        <!-- Changed input type from "date" to "text" for flatpickr -->
+        <input type="text" id="departure_date" name="departure_date" required />
     </div>
     <div>
         <label for="destination">Destination:</label>
@@ -26,6 +27,64 @@
             {% endfor %}
         </select>
     </div>
+    <br>
     <button type="submit">Confirm Booking</button>
 </form>
+
+<!-- Include Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<!-- Include Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    // Custom Flatpickr plugin to add a year dropdown
+    function yearSelectPlugin(opts) {
+        return function (fp) {
+            var currentYear = new Date().getFullYear();
+            var startYear = opts.startYear || currentYear;
+            var endYear = opts.endYear || currentYear + 5;
+
+            // Create the select element
+            var yearSelect = document.createElement("select");
+            yearSelect.style.marginLeft = "10px";
+
+            // Populate the select with year options
+            for (var y = startYear; y <= endYear; y++) {
+                var option = document.createElement("option");
+                option.value = y;
+                option.textContent = y;
+                if (y === fp.currentYear) {
+                    option.selected = true;
+                }
+                yearSelect.appendChild(option);
+            }
+
+            // Listen for changes to update the calendar year
+            yearSelect.addEventListener("change", function () {
+                fp.changeYear(parseInt(this.value, 10));
+            });
+
+            // Once Flatpickr is ready, append the dropdown to the header if not already added
+            fp.config.onReady.push(function () {
+                var header = fp.calendarContainer.querySelector(".flatpickr-current-month");
+                if (header && !header.querySelector("#yearSelect")) {
+                    yearSelect.id = "yearSelect";
+                    header.appendChild(yearSelect);
+                }
+            });
+        }
+    }
+
+    // Initialize Flatpickr with the custom yearSelect plugin
+    var fp = flatpickr("#departure_date", {
+        dateFormat: "Y-m-d",
+        minDate: "today",
+        maxDate: new Date().fp_incr(365 * 5), // Up to 5 years ahead
+        plugins: [
+            yearSelectPlugin({
+                startYear: new Date().getFullYear(),
+                endYear: new Date().getFullYear() + 5
+            })
+        ]
+    });
+</script>
 {% endblock %}
